@@ -1,0 +1,131 @@
+%% start of file `template.tex'.
+%% Copyright 2006-2015 Xavier Danaux (xdanaux@gmail.com).
+%
+% This work may be distributed and/or modified under the
+% conditions of the LaTeX Project Public License version 1.3c,
+% available at http://www.latex-project.org/lppl/.
+
+
+\documentclass[11pt,a4paper,sans]{moderncv}        % possible options include font size ('10pt', '11pt' and '12pt'), paper size ('a4paper', 'letterpaper', 'a5paper', 'legalpaper', 'executivepaper' and 'landscape') and font family ('sans' and 'roman')
+
+\usepackage[utf8]{inputenc}
+
+% moderncv themes
+\moderncvstyle{classic}                             % style options are 'casual' (default), 'classic', 'banking', 'oldstyle' and 'fancy'
+\moderncvcolor{blue}                               % color options 'black', 'blue' (default), 'burgundy', 'green', 'grey', 'orange', 'purple' and 'red'
+%\renewcommand{\familydefault}{\sfdefault}         % to set the default font; use '\sfdefault' for the default sans serif font, '\rmdefault' for the default roman one, or any tex font name
+%\nopagenumbers{}                                  % uncomment to suppress automatic page numbering for CVs longer than one page
+
+% character encoding
+%\usepackage[utf8]{inputenc}                       % if you are not using xelatex ou lualatex, replace by the encoding you are using
+%\usepackage{CJKutf8}                              % if you need to use CJK to typeset your resume in Chinese, Japanese or Korean
+
+% adjust the page margins
+\usepackage[scale=0.75]{geometry}
+\geometry{a4paper, top=35mm, bottom=35mm}
+
+%\setlength{\hintscolumnwidth}{3cm}                % if you want to change the width of the column with the dates
+%\setlength{\makecvtitlenamewidth}{10cm}           % for the 'classic' style, if you want to force the width allocated to your name and avoid line breaks. be careful though, the length is normally calculated to avoid any overlap with your personal info; use this at your own typographical risks...
+
+% personal data
+\name{Bastian}{Hagedorn}
+\address{Oberer Markt 4}{49477 Ibbenbüren, Deutschland}
+\phone[fixed]{+49~(0)~5451~562-8802}                   % optional, remove / comment the line if not wanted; the optional "type" of the phone can be "mobile" (default), "fixed" or "fax"
+\email{b.hagedorn@wwu.de}                               % optional, remove / comment the line if not wanted
+
+% bibliography adjustements (only useful if you make citations in your resume, or print a list of publications using BibTeX)
+%   to show numerical labels in the bibliography (default is to show no labels)
+\makeatletter\renewcommand*{\bibliographyitemlabel}{\@biblabel{\arabic{enumiv}}}\makeatother
+%   to redefine the bibliography heading string ("Publications")
+\renewcommand{\refname}{Publikationen}
+
+% bibliography with mutiple entries
+%\usepackage{multibib}
+%\newcites{book,misc}{{Books},{Others}}
+%----------------------------------------------------------------------------------
+%            content
+%----------------------------------------------------------------------------------
+\begin{document}
+%-----       resume       ---------------------------------------------------------
+\makecvtitle
+
+\section{Persönliche Details}
+\cvitem{Geburtstag}{3. Oktober 1990}
+\cvitem{Geburtsort}{Ibbenbüren, Deutschland}
+\cvitem{Nationalität}{Deutsch}
+
+\section{Universitäre Bildung}
+\cventry{2014 -- Sommer 2016}{Master Studium}{WWU Münster}{Münster, Deutschland}{}{
+	Forschungsinteressen: High-level Programmier-Abstraktionen für High Performance Computing Anwendungen, Programmieren von modernen multi- und many-core Prozessoren
+	}  % arguments 3 to 6 can be left empty
+	\cventry{2011--2014}{Bachelor of Science in Informatik}{WWU Münster}{Münster, Deutschland}{\textit{Note: gut (1,9)}}{
+	Titel der Arbeit: Implementation of a Multicast Module for the Floodlight SDN-Controller, \\
+	In dieser Arbeit erweiterte ich den Floodlight SDN controller um ein Modul, welches einen neuen Multicast Ansatz in 
+	Software Defined Networks ermöglicht. \textit{Note: sehr gut (1,0) }
+	}
+
+\section{Forschungsaufenthalte}
+\cventry{04/2016 -- 05/2016}{Visiting researcher (2 Monate)}{University of Edinburgh}{Edinburgh, UK}{}{
+	Finanziert von EuroLab-4-HPC. Während meines Aufenthaltes erweiterte ich die Intermediate Language des Lift Compilers und ermöglichte dadurch die Generierung von effizienten OpenCL Kernels 
+	für stencilbasierte Anwendungen
+	}  
+\cventry{12/2015}{PRACE Kurs Teilnehmer}{Jülich Supercomputing Centre (JSC)}{Jülich, Deutschland}{}{
+	Kurs: Advanced Parallel Programming with MPI and OpenMP \\
+	Inhalt: Nonblocking Communication, Virtual Topologies, OpenMP-4.0 Extensions, Parallel programming models on hybrid systems
+	}  
+\cventry{09/2015}{Visiting researcher (3 Wochen)}{HUST University}{Wuhan, China}{}{
+				Finanziert von dem EC’s 7th Framework Programm MONICA welches den wissenschaftlichen Austausch zwischen europäischen Ländern und China fördert und unterstützt. Während dieses Besuchs implementierte ich einen experimentellen Ansatz für Multicast in SDN und bereitete eine Publikation über dieses Thema vor. (bald veröffentlicht).
+	}
+\cventry{07/2015}{PRACE Kurs Teilnehmer}{High Performance Computing Centre Suttgart (HLRS)}{Stuttgart, Deutschland}{}{
+	Kurs: Node-Level Performance Engineering \\
+	Inhalt: Parallel hardware architectures, Roofline performance model, benchmarking and profiling tools for high-performance systems and applications
+	}  
+
+\newpage
+\section{Forschungsprojekte}
+\cventry{seit 04/2016}{LIFT}{\textit{A Novel Approach to Achieving Performance Portability on Accelerators}}{}{}{
+	Laufende Forschung\\
+	Das Lift Compiler Framework generiert effiziente und performance-portable OpenCL Kernel durch die Benutzung einer funktionalen high-level Intermediate Language (IL) basierend auf algorithmischen Skeletten.
+	Ich erweitere die IL des Lift Compilers und ermögliche damit das Generieren von effizienten OpenCL Kernels für stencilbasierte Anwendungen.
+	}
+\cventry{04/2015}{PACXX}{\textit{Programming Accelerators with C++}}{}{}{
+	Laufende Forschung\\
+	PACXX ist ein vereinheitlichtes HPC Programmiermodell basierend auf LLVM, welches das Programmieren von Accelerators (GPUs etc.) mit reinem C++ ermöglicht.
+	%PACXX is a unified HPC programming model for programming accelerators (GPUs etc.) using pure C++ by implementing a custom compiler (based on the LLVM framework) and a runtime system.
+	Ich entwickelte einen analysis pass für den PACXX Compiler und portierte HPC Anwendungen auf das PACXX Programmiermodell. Beschrieben in \cite{haidl}
+	}
+\cventry{10/2013 - 09/2014}{OFERTIE EU Project}{\textit{OpenFlow Experiment in Real-Time Internet Edutainment}}{}{}{
+	The OFERTIE project aims to use SDN approaches to improve delivery of Real-Time Online Interactive Applications (ROIA).
+	Als studentische Hilfskraft konfigurierte ich das SDN Testbed der Universtität Münster, führte mehrere SDN basierte Experimente durch und erweiterte die Monitoring
+	Schnittstelle des Real-Time Frameworks (RTF)
+	}
+
+\section{Lehre}
+\cvitem{WS 2015}{Studentische Hilfskraft für die Vorlesung: \textit{Betriebssysteme}}
+\cvitem{SS 2015}{Studentische Hilfskraft für die Vorlesung: \textit{Rechnerstrukturen}}
+\cvitem{WS 2014}{Studentische Hilfskraft für die Vorlesung: \textit{Betriebssysteme}}
+
+\section{Technische Fähigkeiten}
+\cventry{Programmier-\\sprachen}{Scala, C/C++, Java}{}{}{}{
+				Erfahrungen: 
+				Stencil Unterstützung für den Lift Compiler,
+				Profiling Bibliothek für OpenCL Programme,
+				Multicast Modul für den Floodlight SDN Controller,
+				Implementierung der WiPo Architektur,
+				Erweiterung der Monitoring Schnittstelle des RTF
+		}
+
+\cventry{Parallele Programmierung}{OpenCL, CUDA, OpenMP, MPI}{}{}{}{
+				Erfahrungen: Performance portability Evaluierung von  OpenCL Kerneln auf Intel Xeon (Phi) und NVIDIA Tesla. JIT compilation einer DSL mit LLVM und der CUDA Driver API
+		}
+
+\cventry{Compiler Tools}{LLVM}{}{}{}{
+				Erfahrungen: Analysis Pass für den PACXX Compiler, Compiler frontend für selbst definierte DSL für datenparallele Anwendungen basierend auf algorithmischen Skeletten
+		}
+
+\cventry{OS}{Linux, Mac OS X}{}{}{}{}
+\nocite{*}
+\bibliographystyle{plain}
+\bibliography{publications}                        % 'publications' is the name of a BibTeX file
+\end{document}
+

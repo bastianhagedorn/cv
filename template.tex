@@ -1,0 +1,186 @@
+%% start of file `template.tex'.
+%% Copyright 2006-2015 Xavier Danaux (xdanaux@gmail.com).
+%
+% This work may be distributed and/or modified under the
+% conditions of the LaTeX Project Public License version 1.3c,
+% available at http://www.latex-project.org/lppl/.
+
+
+\documentclass[11pt,a4paper,sans]{moderncv}        % possible options include font size ('10pt', '11pt' and '12pt'), paper size ('a4paper', 'letterpaper', 'a5paper', 'legalpaper', 'executivepaper' and 'landscape') and font family ('sans' and 'roman')
+
+\usepackage[utf8]{inputenc}
+
+% moderncv themes
+\moderncvstyle{classic}                             % style options are 'casual' (default), 'classic', 'banking', 'oldstyle' and 'fancy'
+\moderncvcolor{blue}                               % color options 'black', 'blue' (default), 'burgundy', 'green', 'grey', 'orange', 'purple' and 'red'
+%\renewcommand{\familydefault}{\sfdefault}         % to set the default font; use '\sfdefault' for the default sans serif font, '\rmdefault' for the default roman one, or any tex font name
+%\nopagenumbers{}                                  % uncomment to suppress automatic page numbering for CVs longer than one page
+
+% character encoding
+%\usepackage[utf8]{inputenc}                       % if you are not using xelatex ou lualatex, replace by the encoding you are using
+%\usepackage{CJKutf8}                              % if you need to use CJK to typeset your resume in Chinese, Japanese or Korean
+
+% adjust the page margins
+\usepackage[scale=0.75]{geometry}
+\geometry{a4paper, top=35mm, bottom=35mm}
+
+%\setlength{\hintscolumnwidth}{3cm}                % if you want to change the width of the column with the dates
+%\setlength{\makecvtitlenamewidth}{10cm}           % for the 'classic' style, if you want to force the width allocated to your name and avoid line breaks. be careful though, the length is normally calculated to avoid any overlap with your personal info; use this at your own typographical risks...
+
+% personal data
+\name{Bastian}{Hagedorn}
+\address{Oberer Markt 4}{49477 Ibbenbüren, Germany}
+\phone[fixed]{+49~(0)~5451~562-8802}                   % optional, remove / comment the line if not wanted; the optional "type" of the phone can be "mobile" (default), "fixed" or "fax"
+\email{b.hagedorn@wwu.de}                               % optional, remove / comment the line if not wanted
+
+% bibliography adjustements (only useful if you make citations in your resume, or print a list of publications using BibTeX)
+%   to show numerical labels in the bibliography (default is to show no labels)
+\makeatletter\renewcommand*{\bibliographyitemlabel}{\@biblabel{\arabic{enumiv}}}\makeatother
+%   to redefine the bibliography heading string ("Publications")
+%\renewcommand{\refname}{Articles}
+
+% bibliography with mutiple entries
+%\usepackage{multibib}
+%\newcites{book,misc}{{Books},{Others}}
+%----------------------------------------------------------------------------------
+%            content
+%----------------------------------------------------------------------------------
+\begin{document}
+%-----       resume       ---------------------------------------------------------
+\makecvtitle
+
+\section{Personal Details}
+\cvitem{Birthday}{3 October 1990}
+\cvitem{Birthplace}{Ibbenbüren, Germany}
+\cvitem{Nationality}{German}
+
+\section{University Education}
+\cventry{2014 -- Summer 2016}{Master studies}{University of Münster}{Münster, Germany}{}{
+	Supervisor: Prof. Sergei Gorlatch \\
+	Main research interests: High-level programming abstractions for High Performance Computing Applications, Programming modern multi- and many-core processors
+	}  % arguments 3 to 6 can be left empty
+	\cventry{2011--2014}{Bachelor of Science in computer science}{University of Münster}{Münster, Germany}{\textit{Final grade in computer science: very good (81\%)}}{
+	Thesis title: Implementation of a Multicast Module for the Floodlight SDN-Controller \\
+	In this thesis, I extended the Floodlight network controller with a module which enables a novel apporach to multicast communication in software defined networks. \textit{Grade for thesis: excellent} 
+	%This module allows to use arbitrary multicast trees and implements algorithms to minimize 
+	}
+
+\section{Research Visits}
+\cventry{12/2015}{PRACE course participant}{Jülich Supercomputing Centre (JSC)}{Jülich, Germany}{}{
+	Course: Advanced Parallel Programming with MPI and OpenMP \\
+	Content: Nonblocking Communication, Virtual Topologies, OpenMP-4.0 Extensions, Parallel programming models on hybrid systems
+	}  
+\cventry{09/2015}{Visiting researcher (3 weeks)}{HUST University}{Wuhan, China}{}{
+	Funded by the EC’s 7th Framework Programme MONICA for accelerating the transfer and deployment of research knowledge between European countries and China.
+	During this visit, I implemented an experimental setup for SDN-based multicast, and prepared a research paper on this topic (under review).
+	}  
+\cventry{07/2015}{PRACE course participant}{High Performance Computing Centre Suttgart (HLRS)}{Stuttgart, Germany}{}{
+	Course: Node-Level Performance Engineering \\
+	Content: Parallel hardware architectures, Roofline performance model, benchmarking and profiling tools for high-performance systems and applications
+	}  
+
+\section{Research Projects}
+\cventry{04/2015}{PACXX}{\textit{Programming Accelerators with C++}}{}{}{
+	Ongoing research \\
+	PACXX is a unified HPC programming model for programming accelerators (GPUs etc.) using pure C++ by implementing a custom compiler (based on the LLVM framework) and a runtime system.
+	I developed an analysis pass for the PACXX compiler and ported HPC applications to the PACXX programming model resulting in a publication \cite{haidl}.
+	}
+\cventry{10/2013 - 09/2014}{OFERTIE EU Project}{\textit{OpenFlow Experiment in Real-Time Internet Edutainment}}{}{}{
+	The OFERTIE project aims to use SDN approaches to improve delivery of Real-Time Online Interactive Applications (ROIA).
+	As a student assistant, I configured the SDN testbed at the University of Münster, conducted several SDN-based experiments and extended the monitoring 
+	interface of the Real-Time Framework (RTF)
+	}
+
+\section{Teaching}
+\cvitem{Winter 2015}{Teaching assistant for the course: \textit{Operating systems}}
+\cvitem{Summer 2015}{Teaching assistant for the course: \textit{Computer architectures}}
+\cvitem{Winter 2014}{Teaching assistant for the course: \textit{Operating systems}}
+
+\section{Technical Skills}
+\cventry{Programming Languages}{C/C++, Java}{}{}{}{
+				Experiences: Multicast Module for the Floodlight SDN Controller,
+				Measurement library for OpenCL,
+				Implementation of the WiPo architecture,
+				Monitoring interface extension of RTF
+		}
+
+\cventry{Parallel Programming}{OpenCL, CUDA, OpenMP, MPI}{}{}{}{
+				Experiences: Performance portability evaluation of OpenCL Kernels on Intel Xeon (Phi) and NVIDIA Tesla. JIT compilation of a DSL using LLVM and CUDA Driver API
+		}
+
+\cventry{Compiler Tools}{LLVM}{}{}{}{
+				Experiences: Analysis Pass for the PACXX Compiler, Compiler frontend for self-defined DSL for data parallel applications based on algorithmic skeletons
+		}
+
+\cventry{OS}{Linux, Mac OS X}{}{}{}{}
+
+
+% Publications from a BibTeX file without multibib
+%  for numerical labels: \renewcommand{\bibliographyitemlabel}{\@biblabel{\arabic{enumiv}}}% CONSIDER MERGING WITH PREAMBLE PART
+%  to redefine the heading string ("Publications"): \renewcommand{\refname}{Articles}
+\nocite{*}
+\bibliographystyle{plain}
+\bibliography{publications}                        % 'publications' is the name of a BibTeX file
+
+% Publications from a BibTeX file using the multibib package
+%\section{Publications}
+%\nocitebook{book1,book2}
+%\bibliographystylebook{plain}
+%\bibliographybook{publications}                   % 'publications' is the name of a BibTeX file
+%\nocitemisc{misc1,misc2,misc3}
+%\bibliographystylemisc{plain}
+%\bibliographymisc{publications}                   % 'publications' is the name of a BibTeX file
+
+\end{document}
+%
+%\section{Experience}
+%\subsection{Vocational}
+%\cventry{year--year}{Job title}{Employer}{City}{}{General description no longer than 1--2 lines.\newline{}%
+%Detailed achievements:%
+%\begin{itemize}%
+%\item Achievement 1;
+%\item Achievement 2, with sub-achievements:
+%  \begin{itemize}%
+%  \item Sub-achievement (a);
+%  \item Sub-achievement (b), with sub-sub-achievements (don't do this!);
+%    \begin{itemize}
+%    \item Sub-sub-achievement i;
+%    \item Sub-sub-achievement ii;
+%    \item Sub-sub-achievement iii;
+%    \end{itemize}
+%  \item Sub-achievement (c);
+%  \end{itemize}
+%\item Achievement 3.
+%\end{itemize}}
+%\cventry{year--year}{Job title}{Employer}{City}{}{Description line 1\newline{}Description line 2}
+%\subsection{Miscellaneous}
+%\cventry{year--year}{Job title}{Employer}{City}{}{Description}
+%
+%\section{Languages}
+%\cvitemwithcomment{Language 1}{Skill level}{Comment}
+%\cvitemwithcomment{Language 2}{Skill level}{Comment}
+%\cvitemwithcomment{Language 3}{Skill level}{Comment}
+%
+%\section{Computer skills}
+%\cvdoubleitem{category 1}{XXX, YYY, ZZZ}{category 4}{XXX, YYY, ZZZ}
+%\cvdoubleitem{category 2}{XXX, YYY, ZZZ}{category 5}{XXX, YYY, ZZZ}
+%\cvdoubleitem{category 3}{XXX, YYY, ZZZ}{category 6}{XXX, YYY, ZZZ}
+%
+%\section{Interests}
+%\cvitem{hobby 1}{Description}
+%\cvitem{hobby 2}{Description}
+%\cvitem{hobby 3}{Description}
+%
+%\section{Extra 1}
+%\cvlistitem{Item 1}
+%\cvlistitem{Item 2}
+%\cvlistitem{Item 3. This item is particularly long and therefore normally spans over several lines. Did you notice the indentation when the line wraps?}
+%
+%\section{Extra 2}
+%\cvlistdoubleitem{Item 1}{Item 4}
+%\cvlistdoubleitem{Item 2}{Item 5\cite{book1}}
+%\cvlistdoubleitem{Item 3}{Item 6. Like item 3 in the single column list before, this item is particularly long to wrap over several lines.}
+%
+%
+
+%% end of file `template.tex'.
