@@ -84,16 +84,6 @@ maxbibnames=50]{biblatex}
 
 \bibliography{publications}
 
-% bibliography adjustements (only useful if you make citations in your resume, or print a list of publications using BibTeX)
-%   to show numerical labels in the bibliography (default is to show no labels)
-%\makeatletter\renewcommand*{\bibliographyitemlabel}{\@biblabel{\arabic{enumiv}}}\makeatother
-%   to redefine the bibliography heading string ("Publications")
-%\renewcommand{\refname}{Articles}
-
-% bibliography with mutiple entries
-%\usepackage{multibib}
-%\newcites{book,misc}{{Books},{Others}}
-
 %----------------------------------------------------------------------------------
 %            content
 %----------------------------------------------------------------------------------
@@ -145,10 +135,9 @@ maxbibnames=50]{biblatex}
 					{University of Edinburgh}
 					{Edinburgh, UK}{}
 					{Funded by the EuroLab-4-HPC\\
-					 During this visit, I extended the LIFT compiler which is developed at the
-					 University of Edinburgh to enable performance-portable generation of stencil
-					 code across several GPU architectures.\\ A paper describing our results is
-					 currently under review at the prestigious PACT conference~\cite{pact2017}
+					 During this visit, I extended the LIFT compiler, developed at the
+					 University of Edinburgh, to enable automatic exploration of stencil-specific optimizations.
+					 A paper describing our results is currently under review at the prestigious PACT conference~\cite{pact2017}
 					}
 
 	\cventry{04/2016 \\-- 05/2016}
@@ -160,14 +149,14 @@ maxbibnames=50]{biblatex}
 					 high-performance stencil code for GPUs.
 					}
 
-	\cventry{12/2015}
-					{PRACE course participant}
-					{Jülich Supercomputing Centre}
-					{Jülich, Germany}{}
-					{Course: Advanced Parallel Programming with MPI and OpenMP \\
-					 Content: Nonblocking Communication, Virtual Topologies, OpenMP-4.0 Extensions,
-					 Parallel programming models on hybrid systems
-					}
+%	\cventry{12/2015}
+%					{PRACE course participant}
+%					{Jülich Supercomputing Centre}
+%					{Jülich, Germany}{}
+%					{Course: Advanced Parallel Programming with MPI and OpenMP \\
+%					 Content: Nonblocking Communication, Virtual Topologies, OpenMP-4.0 Extensions,
+%					 Parallel programming models on hybrid systems
+%					}
 
 	\cventry{09/2015}
 					{Visiting researcher (3 weeks)}
@@ -179,14 +168,14 @@ maxbibnames=50]{biblatex}
 					 and prepared a research paper on this topic~\cite{humernbrum}
 					}
 
-	\cventry{07/2015}
-					{PRACE course participant}
-					{High Performance Computing Centre Suttgart}
-					{Stuttgart, Germany}{}
-					{Course: Node-Level Performance Engineering \\
-					 Content: Parallel hardware architectures, Roofline performance model, benchmarking
-					 and profiling tools for high-performance systems and applications
-					}
+%	\cventry{07/2015}
+%					{PRACE course participant}
+%					{High Performance Computing Centre Suttgart}
+%					{Stuttgart, Germany}{}
+%					{Course: Node-Level Performance Engineering \\
+%					 Content: Parallel hardware architectures, Roofline performance model, benchmarking
+%					 and profiling tools for high-performance systems and applications
+%					}
 
 %----------------------------------------------------------------------------------
 %            presentations
@@ -196,6 +185,20 @@ maxbibnames=50]{biblatex}
 					{\normalfont{Invited Talk: \textit{Performance Portable Stencil Code Generation with LIFT}}}{}{}{}
 					{Research Group on Compiler and Architecture Design, University of Edinburgh, UK}
 
+\newpage
+
+%----------------------------------------------------------------------------------
+%            publications
+%----------------------------------------------------------------------------------
+\printbibheading[title={Publications}]
+\printbibliography[heading=none]
+% Publications from a BibTeX file without multibib
+%  for numerical labels: \renewcommand{\bibliographyitemlabel}{\@biblabel{\arabic{enumiv}}}% CONSIDER MERGING WITH PREAMBLE PART
+%  to redefine the heading string ("Publications"): \renewcommand{\refname}{Articles}
+%\bibliographystyle{plain}
+%\bibliography{publications}
+
+
 %----------------------------------------------------------------------------------
 %            research projects
 %----------------------------------------------------------------------------------
@@ -204,31 +207,61 @@ maxbibnames=50]{biblatex}
 					{LIFT}
 					{\textit{A Novel Approach to Achieving Performance Portability on Accelerators}}{}{}
 					{Ongoing research, \textit{www.lift-project.org}\\
-					 The Lift project is a novel approach to generate high-performance OpenCL kernels
-					 from high-level functional programs. My contribution to the project focuses on
-					 stencil computations. I extended the functional LIFT IR and enabled the generation
+					 I am one of the main contributors focusing on implementing stencil computations in Lift.
+					 I extended the functional LIFT IR and enabled the generation
 					 of efficient OpenCL kernels for stencil-based applications.
+					 The Lift project is a novel approach to generate high-performance OpenCL kernels
+					 from high-level functional programs.\\
 					}
 
 	\cventry{04/2015}
 					{PACXX}
 					{\textit{Programming Accelerators with C++}}{}{}{
 					 Ongoing research \\
+					 I developed an analysis pass for the PACXX compiler and ported HPC applications
+					 to the PACXX programming model resulting in a publication~\cite{haidl}.
 					 PACXX is a unified HPC programming model for programming accelerators
 					 (GPUs etc.) using pure C++ by implementing a custom compiler
 					 (based on the LLVM framework) and a runtime system.
-					 I developed an analysis pass for the PACXX compiler and ported HPC applications
-					 to the PACXX programming model resulting in a publication~\cite{haidl}.
 					}
 
 	\cventry{10/2013 - 09/2014}
 					{OFERTIE EU Project}
 					{\textit{OpenFlow Experiment in Real-Time Internet Edutainment}}{}{}
-					{The OFERTIE project aims to use SDN approaches to improve delivery of Real-Time Online
-					 Interactive Applications (ROIA). As a student assistant, I configured the SDN
+					{
+					 I configured the SDN
 					 testbed at the University of Münster, conducted several SDN-based experiments
 					 and extended the monitoring interface of the Real-Time Framework (RTF)
+					 The OFERTIE project aims to use SDN approaches to improve delivery of Real-Time Online
+					 Interactive Applications (ROIA).
 					}
+
+%----------------------------------------------------------------------------------
+%            academic events
+%----------------------------------------------------------------------------------
+\section{Attended Academic Events}
+\cvitem{2017}{ACASES (HiPEAC) - \textit{Thirteenth International Summer School on Advanced Computer Architecture and Compilation for High-Performance and Embedded Systems (accepted)}}
+\cvitem{}{SPLS - \textit{Scottish Programming Languages Seminar}, Edinburgh, UK}
+\cvitem{2016}{HLPP - \textit{9th International Symposium on High-Level Parallel Programming and Applications}, Münster, Germany}
+\cvitem{}{UKMAC - \textit{UK Many-Core Developer Conference}, Edinburgh, UK}
+\cvitem{}{WadlerFest/LCFS30 - \textit{30th Aniversery of the Laboratory for Foundations of Computer Science}, Edinburgh, UK}
+\cvitem{2015}{PRACE Course - \textit{Advanced Parallel Programming with MPI and OpenMP}, Jülich, Germany}
+\cvitem{}{PRACE Course - \textit{Node-Level Performance Engineering}, Stuttgart, Germany}
+
+%----------------------------------------------------------------------------------
+%            reviewer
+%----------------------------------------------------------------------------------
+\section{Reviewer}
+	\cvitem{2016 -- 2017}
+				 {I have been active as an external reviewer for the following conferences and journals:
+				  \emph{International Journal of Parallel Programming (IJPP)},
+					the \emph{Journal of Supercomputing},
+					the journal \emph{Concurrency and Computation: Practice and Experience},
+					the Parallel Computing Technologies (PaCT),
+					the Parallel Computing Conference (ParCo),
+					the UKRCON
+					and the PSI.
+				 }
 
 %----------------------------------------------------------------------------------
 %            teaching
@@ -269,36 +302,4 @@ maxbibnames=50]{biblatex}
 					 Compiler frontend for self-defined DSL for data parallel applications based on algorithmic skeletons
 					}
 
-%----------------------------------------------------------------------------------
-%            reviewer
-%----------------------------------------------------------------------------------
-\section{Reviewer}
-	\cvitem{2016 -- 2017}
-				 {I have been active as an external reviewer for the following conferences and journals:
-				  \emph{International Journal of Parallel Programming (IJPP)},
-					the \emph{Journal of Supercomputing},
-					the journal \emph{Concurrency and Computation: Practice and Experience},
-					the Parallel Computing Technologies (PaCT),
-					the Parallel Computing Conference (ParCo),
-					the UKRCON
-					and the PSI.
-				 }
-
-%----------------------------------------------------------------------------------
-%            conferences
-%----------------------------------------------------------------------------------
-\section{Attended Conferences}
-\cvitem{2017}{SPLS - \textit{Scottish Programming Languages Seminar}, Edinburgh, UK}
-\cvitem{2016}{HLPP - \textit{9th International Symposium on High-Level Parallel Programming and Applications}, Münster, Germany}
-\cvitem{2016}{UKMAC - \textit{UK Many-Core Developer Conference}, Edinburgh, UK}
-\cvitem{2016}{WadlerFest/LCFS30 - \textit{30th Aniversery of the Laboratory for Foundations of Computer Science}, Edinburgh, UK}
-
-\printbibheading[title={Publications}]
-\printbibliography[heading=none]
-% Publications from a BibTeX file without multibib
-%  for numerical labels: \renewcommand{\bibliographyitemlabel}{\@biblabel{\arabic{enumiv}}}% CONSIDER MERGING WITH PREAMBLE PART
-%  to redefine the heading string ("Publications"): \renewcommand{\refname}{Articles}
-%\bibliographystyle{plain}
-%\bibliography{publications}
 \end{document}
-
