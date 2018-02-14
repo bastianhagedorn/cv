@@ -101,8 +101,12 @@ maxbibnames=50]{biblatex}
 					{University of Münster}
 					{Münster, Germany}{}
 					{Supervisor: Prof. Sergei Gorlatch \\
-					 Main research interests: High-level programming abstractions for high-performance
-					 computing applications, Programming of modern multi- and many-core processors
+					 %Main research interests: High-level programming abstractions for high-performance
+					 %computing applications, Programming of modern multi- and many-core processors
+                     My PhD research focuses on performance-portable stencil code generation using Lift by tackling the growing problem of achieving high efficiency when programming the ever changing hardware of today and tomorrow.
+                     The Lift project has recently emerged as a promising compilation framework to achieve performance portability.
+                     Lift defines a small set of reusable parallel primitives that DSL writers can easily build upon.
+                     Lift’s key novelty is its ability to automatically explore the optimization space by using as a system of extensible rewrite rules which encode specific optimizations.
 					}
 
 	\cventry{2014 -- 2016}
@@ -111,8 +115,6 @@ maxbibnames=50]{biblatex}
 					{\textit{Final grade in computer science: excellent with distinction (90\%)}}
 					{Thesis title: An Extension of a Functional Intermediate Language for Parallelizing
 					 Stencil Computations and its Optimizing GPU Implementation Using OpenCL.\\
-					 In this thesis, I extended the Lift compiler to enable the generation of
-					 high-performance stencil code for GPUs from a high-level functional program
 					 \textit{Grade for thesis: excellent}
 					}
 
@@ -121,8 +123,8 @@ maxbibnames=50]{biblatex}
 					{University of Münster}{Münster, Germany}
 					{\textit{Final grade in computer science: very good (81\%)}}
 					{Thesis title: Implementation of a Multicast Module for the Floodlight SDN-Controller \\
-					 In this thesis, I extended the Floodlight network controller with a module which enables
-					 a novel approach to multicast communication in software-defined networks.
+					 %In this thesis, I extended the Floodlight network controller with a module which enables
+					 %a novel approach to multicast communication in software-defined networks.
 					 \textit{Grade for thesis: excellent}
 					}
 
@@ -135,7 +137,9 @@ maxbibnames=50]{biblatex}
 					{University of Glasgow}
 					{Glasgow, UK}{}
 					{Funded by HPC-Europa3\\
-                     In collaboration with the Irish Centre for High-End Computing (ICHEC) and the University of Edinburgh, I implement high-performance code generation for emerging HPC applications like acoustics simulations and Ground Penetrating Radar (GPR) using Lift.
+                     During this visit, I investigate the implementation of performance portable HPC applications with Lift.
+                     I will focus on two HPC applications: room acoustics simulations and ground penetrating radar.
+                     The Irish Centre for High-End Computing (ICHEC) is supporting my visit by providing access to their GPU hardware and I closely collaborate with the entire Lift team at the Universities of Glasgow and Edinburgh.
 					}
 
 	\cventry{07/2017 \\-- 09/2017}
@@ -194,6 +198,21 @@ maxbibnames=50]{biblatex}
 %					 and profiling tools for high-performance systems and applications
 %					}
 
+
+
+%----------------------------------------------------------------------------------
+%            publications
+%----------------------------------------------------------------------------------
+\printbibheading[title={Publications}]
+\printbibliography[heading=none]
+% Publications from a BibTeX file without multibib
+%  for numerical labels: \renewcommand{\bibliographyitemlabel}{\@biblabel{\arabic{enumiv}}}% CONSIDER MERGING WITH PREAMBLE PART
+%  to redefine the heading string ("Publications"): \renewcommand{\refname}{Articles}
+%\bibliographystyle{plain}
+%\bibliography{publications}
+
+
+
 %----------------------------------------------------------------------------------
 %            presentations
 %----------------------------------------------------------------------------------
@@ -211,22 +230,16 @@ maxbibnames=50]{biblatex}
 					{\normalfont{Invited Talk: \textit{Performance Portable Stencil Code Generation with Lift}}}{}{}{}
 					{Research Group on Compiler and Architecture Design, University of Edinburgh, UK}
 
-%----------------------------------------------------------------------------------
-%            publications
-%----------------------------------------------------------------------------------
-\printbibheading[title={Publications}]
-\printbibliography[heading=none]
-% Publications from a BibTeX file without multibib
-%  for numerical labels: \renewcommand{\bibliographyitemlabel}{\@biblabel{\arabic{enumiv}}}% CONSIDER MERGING WITH PREAMBLE PART
-%  to redefine the heading string ("Publications"): \renewcommand{\refname}{Articles}
-%\bibliographystyle{plain}
-%\bibliography{publications}
-
 
 %----------------------------------------------------------------------------------
 %            research projects
 %----------------------------------------------------------------------------------
+                    \newpage
 \section{Research Projects}
+    \cventry{}
+                    {\normalfont{\small I have been actively contributing to the following research projects}}{}{}{}{}
+
+
 	\cventry{since 04/2016}
 					{Lift}
 					{\textit{A Novel Approach to Achieving Performance Portability on Accelerators}}{}{}
@@ -265,10 +278,11 @@ maxbibnames=50]{biblatex}
 %----------------------------------------------------------------------------------
 \section{Attended Academic Events}
 \cvitem{2018}{SPLS - \textit{Scottish Programming Languages Seminar}, Glasgow, UK}
+\cvitem{}{CGO - \textit{International Symposium on Code Generation and Optimization}, Vienna, Austria}
 \cvitem{2017}{Compiler and Programming Language Summit (organized by Google), Munich, Germany}
 \cvitem{}{ACASES Summer School (organized by HiPEAC) - \textit{Thirteenth International Summer School on Advanced Computer Architecture and Compilation for High-Performance and Embedded Systems}, Fiuggi, Italy}
 \cvitem{}{PUMPS Summer School - \textit{Eighth edition of the Programming and Tuning Massively Parallel Systems summer school}, Barcelona, Spain}
-\cvitem{}{SPLS - \textit{Scottish Programming Languages Seminar}, Edinburgh, UK}
+\cvitem{}{SPLS - \textit{Scottish Programming Languages Seminar}, St. Andrews, UK}
 \cvitem{2016}{HLPP conference - \textit{9th International Symposium on High-Level Parallel Programming and Applications}, Münster, Germany}
 \cvitem{}{UKMAC - \textit{UK Many-Core Developer Conference}, Edinburgh, UK}
 \cvitem{}{WadlerFest/LCFS30 - \textit{30th Aniversery of the Laboratory for Foundations of Computer Science}, Edinburgh, UK}
