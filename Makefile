@@ -1,6 +1,6 @@
 TARGET?=hagedorn_cv
 
-PDFTEXOPTS = -halt-on-error -pdf
+PDFTEXOPTS = -halt-on-error -pdf -pvc
 
 default: build
 
