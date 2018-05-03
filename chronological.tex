@@ -1,0 +1,366 @@
+%% Copyright 2006-2015 Xavier Danaux (xdanaux@gmail.com).
+%
+% This work may be distributed and/or modified under the
+% conditions of the LaTeX Project Public License version 1.3c,
+% available at http://www.latex-project.org/lppl/.
+\documentclass[11pt,a4paper,sans]{moderncv}        % possible options include font size ('10pt', '11pt' and '12pt'), paper size ('a4paper', 'letterpaper', 'a5paper', 'legalpaper', 'executivepaper' and 'landscape') and font family ('sans' and 'roman')
+
+\usepackage[utf8]{inputenc}
+
+% moderncv themes
+\moderncvstyle{classic}                             % style options are 'casual' (default), 'classic', 'banking', 'oldstyle' and 'fancy'
+\moderncvcolor{blue}                               % color options 'black', 'blue' (default), 'burgundy', 'green', 'grey', 'orange', 'purple' and 'red'
+%\renewcommand{\familydefault}{\sfdefault}         % to set the default font; use '\sfdefault' for the default sans serif font, '\rmdefault' for the default roman one, or any tex font name
+%\nopagenumbers{}                                  % uncomment to suppress automatic page numbering for CVs longer than one page
+
+\moderncvtheme[blue]{classic}
+\usepackage[utf8]{inputenc}
+% adjust the page margins
+\usepackage[scale=0.8]{geometry}
+\AtBeginDocument{\recomputelengths}
+
+% personal data
+\firstname{Bastian}
+\familyname{Hagedorn}
+\address{Einsteinstraße 62}{48149 Münster, Germany}
+\phone[fixed]{+49~(0)~251~83-32744}
+\email{b.hagedorn@wwu.de}
+
+\usepackage[style=numeric-verb,
+            sorting=none, % keep order as in the bib file ...
+            giveninits=true,
+            defernumbers,
+            backend=biber,
+maxbibnames=50]{biblatex}
+
+\defbibenvironment{bibliography}
+  {\list%
+     {\printfield{year}\hspace{1em}\printtext[labelnumberwidth]{\printfield{labelprefix}\printfield{labelnumber}}}
+     {\setlength{\topsep}{0pt}% layout parameters from moderncvstyleclassic.sty
+      \setlength{\labelwidth}{\hintscolumnwidth}%
+      \setlength{\labelsep}{\separatorcolumnwidth}%
+      \leftmargin\labelwidth%
+      \advance\leftmargin\labelsep%
+      }%
+      \sloppy\clubpenalty4000\widowpenalty4000}
+  {\endlist}
+  {\item}
+
+
+\DeclareNameAlias{default}{first-last}
+
+\usepackage{xstring}
+\usepackage{xpatch}
+\newbibmacro*{name:bold}[2]{%
+  \def\do##1{\iffieldequalstr{hash}{##1}{\bfseries\listbreak}{}}%
+  \dolistloop{\boldnames}%
+}
+
+\newcommand*{\boldnames}{}
+
+\xpretobibmacro{name:family}{\begingroup\usebibmacro{name:bold}{#1}{#2}}{}{}
+\xpretobibmacro{name:given-family}{\begingroup\usebibmacro{name:bold}{#1}{#2}}{}{}
+\xpretobibmacro{name:family-given}{\begingroup\usebibmacro{name:bold}{#1}{#2}}{}{}
+\xpretobibmacro{name:delim}{\begingroup\normalfont}{}{}
+
+\xapptobibmacro{name:family}{\endgroup}{}{}
+\xapptobibmacro{name:given-family}{\endgroup}{}{}
+\xapptobibmacro{name:family-given}{\endgroup}{}{}
+\xapptobibmacro{name:delim}{\endgroup}{}{}
+
+% Got hashes from the bbl file
+\renewcommand*{\boldnames}{}
+\forcsvlist{\listadd\boldnames}
+  {{f3b57123791f63857d478ac84c802258},
+   {7dd9b93410e4a44439b25ea5e2c49d4a}}
+
+% Only print a year once
+\newcounter{currentYear}
+\DeclareFieldFormat{year}{%
+\ifthenelse{\equal{#1}{\arabic{currentYear}}}%
+    {}
+%{\setcounter{currentYear}{#1}{\bfseries #1}}}
+{\setcounter{currentYear}{#1}{#1}}}
+
+\bibliography{publications}
+
+%----------------------------------------------------------------------------------
+%            content
+%----------------------------------------------------------------------------------
+\begin{document}
+\nocite{*}
+%-----       resume       ---------------------------------------------------------
+\makecvtitle
+
+%----------------------------------------------------------------------------------
+%            university education
+%----------------------------------------------------------------------------------
+\section{University Education}
+	\cventry{2011 -- 2014}
+					{Bachelor of Science in computer science}
+					{University of Münster}{Münster, Germany}
+					{\textit{Final grade in computer science: very good (81\%)}}
+					{Thesis title: Implementation of a Multicast Module for the Floodlight SDN-Controller \\
+					 %In this thesis, I extended the Floodlight network controller with a module which enables
+					 %a novel approach to multicast communication in software-defined networks.
+					 \textit{Grade for thesis: excellent}
+					}
+
+	\cventry{2014 -- 2016}
+					{Master of Science in computer science}
+					{University of Münster}{Münster, Germany}
+					{\textit{Final grade in computer science: excellent with distinction (90\%)}}
+					{Thesis title: An Extension of a Functional Intermediate Language for Parallelizing
+					 Stencil Computations and its Optimizing GPU Implementation Using OpenCL.\\
+					 \textit{Grade for thesis: excellent}
+					}
+
+
+	\cventry{since 2016}
+					{Ph.D. studies}
+					{University of Münster}
+					{Münster, Germany}{}
+					{Supervisor: Prof. Sergei Gorlatch \\
+					 %Main research interests: High-level programming abstractions for high-performance
+					 %computing applications, Programming of modern multi- and many-core processors
+                     My PhD research focuses on performance-portable stencil code generation using Lift by tackling the growing problem of achieving high efficiency when programming the ever changing hardware of today and tomorrow.
+                     The Lift project has recently emerged as a promising compilation framework to achieve performance portability.
+                     Lift defines a small set of reusable parallel primitives that DSL writers can easily build upon.
+                     Lift’s key novelty is its ability to automatically explore the optimization space by using as a system of extensible rewrite rules which encode specific optimizations.
+					}
+
+%----------------------------------------------------------------------------------
+%            research visits
+%----------------------------------------------------------------------------------
+\section{Research Visits}
+	\cventry{09/2015}
+					{Visiting researcher (3 weeks)}
+					{HUST University}
+					{Wuhan, China}{}
+					{Funded by the EC’s 7th Framework Programme MONICA for accelerating the transfer
+					 and deployment of research knowledge between European countries and China.
+					 During this visit, I implemented an experimental setup for SDN-based multicast,
+					 and prepared a research paper on this topic~\cite{humernbrum}
+					}
+
+	\cventry{04/2016 \\-- 05/2016}
+					{Visiting researcher (2 months)}
+					{University of Edinburgh}
+					{Edinburgh, UK}{}
+					{Funded by the EuroLab-4-HPC\\
+					 During this visit, I extended the Lift compiler to enable the generation of
+					 high-performance stencil code for GPUs.
+					}
+
+	\cventry{02/2017 \\-- 03/2017}
+					{Visiting researcher (2 months)}
+					{University of Edinburgh}
+					{Edinburgh, UK}{}
+					{Funded by the EuroLab-4-HPC\\
+					 During this visit, I extended the Lift compiler, developed at the
+					 University of Edinburgh, to enable automatic exploration of stencil-specific optimizations.
+					}
+
+	\cventry{07/2017 \\-- 09/2017}
+					{Visiting researcher (2 months)}
+					{University of Edinburgh}
+					{Edinburgh, UK}{}
+					{Funded by HiPEAC\\
+                     During this visit, I combined modern auto-tuning techniques with the current Lift code generator.
+                     I also evaluated Lift's functional compilation approach compared to state-of-the-art polyhedral compilation.
+                     A paper describing the results of this and our previous collaborations has won the \textit{best paper award} at the prestigious International Symposium on Code Generation and Optimization (CGO)~\cite{cgo2018}
+					}
+
+    \cventry{02/2018 \\-- 04/2018}
+					{Visiting researcher (2 months)}
+					{University of Glasgow}
+					{Glasgow, UK}{}
+					{Funded by HPC-Europa3\\
+                     During this visit, I investigate the implementation of performance portable HPC applications with Lift.
+                     I will focus on two HPC applications: room acoustics simulations and ground penetrating radar.
+                     The Irish Centre for High-End Computing (ICHEC) is supporting my visit by providing access to their GPU hardware and I closely collaborate with the entire Lift team at the Universities of Glasgow and Edinburgh.
+					}
+
+%----------------------------------------------------------------------------------
+%            publications
+%----------------------------------------------------------------------------------
+\printbibheading[title={Publications}]
+\printbibliography[heading=none]
+% Publications from a BibTeX file without multibib
+%  for numerical labels: \renewcommand{\bibliographyitemlabel}{\@biblabel{\arabic{enumiv}}}% CONSIDER MERGING WITH PREAMBLE PART
+%  to redefine the heading string ("Publications"): \renewcommand{\refname}{Articles}
+%\bibliographystyle{plain}
+%\bibliography{publications}
+
+
+
+%----------------------------------------------------------------------------------
+%            presentations
+%----------------------------------------------------------------------------------
+\section{Presentations}
+    \cventry{04/2018}
+					{\normalfont{Talk: \textit{High Performance Stencil Code Generation with Lift}}}{}{}{}
+                    {Workshop on Compilers for Parallel Computing (CPC), Dublin, Ireland}
+    \cventry{04/2018}
+					{\normalfont{Invited Talk: \textit{High Performance Stencil Code Generation with Lift}}}{}{}{}
+                    {Dependable Systems Group, Heriot-Watt University Edinburgh, UK}
+    \cventry{04/2018}
+					{\normalfont{Tutorial: \textit{Lift: Performance Portable Parallel Code Generation via Rewrite Rules}}}{}{}{}
+                    {International Symposium on Performance Analysis of Systems and Software (ISPASS), Belfast, UK}
+    \cventry{03/2018}
+					{\normalfont{Talk: \textit{High Performance Stencil Code Generation with Lift}}}{}{}{}
+                    {Scottish Programming Language Seminar (SPLS), University of Glasgow, UK}
+    \cventry{02/2018}
+					{\normalfont{Talk: \textit{High Performance Stencil Code Generation with Lift}}}{}{}{}
+                    {International Symposium on Code Generation and Optimization (CGO), Vienna, Austria}
+	\cventry{02/2018}
+					{\normalfont{Invited Talk: \textit{High Performance Stencil Code Generation with Lift}}}{}{}{}
+					{Research Group on Compiler and Architecture Design, University of Edinburgh, UK}
+    \cventry{03/2017}
+					{\normalfont{Invited Talk: \textit{Performance Portable Stencil Code Generation with Lift}}}{}{}{}
+					{Research Group on Compiler and Architecture Design, University of Edinburgh, UK}
+
+
+%----------------------------------------------------------------------------------
+%            research projects
+%----------------------------------------------------------------------------------
+\section{Research Projects}
+    \cventry{}
+                    {\normalfont{\small I have been actively contributing to the following research projects}}{}{}{}{}
+
+
+	\cventry{since 04/2016}
+					{Lift}
+					{\textit{A Novel Approach to Achieving Performance Portability on Accelerators}}{}{}
+					{Ongoing research, \textit{www.lift-project.org}\\
+					 I am one of the main contributors focusing on implementing stencil computations in Lift.
+					 I extended the functional Lift IR and enabled the generation
+					 of efficient OpenCL kernels for stencil-based applications.
+					 The Lift project is a novel approach to generate high-performance OpenCL kernels
+					 from high-level functional programs.\\
+					}
+
+	\cventry{04/2015}
+					{PACXX}
+					{\textit{Programming Accelerators with C++}}{}{}{
+					 Ongoing research \\
+					 I developed an LLVM analysis pass for the PACXX compiler and ported HPC applications
+					 to the PACXX programming model resulting in a publication~\cite{haidl}.
+					 PACXX is a unified HPC programming model for programming accelerators
+					 (GPUs etc.) using pure C++ by implementing a custom compiler
+					 (based on the LLVM framework) and a runtime system.
+					}
+
+	\cventry{10/2013 \\- 09/2014}
+					{OFERTIE EU Project}
+					{\textit{OpenFlow Experiment in Real-Time Internet Edutainment}}{}{}
+					{
+					 I configured the SDN
+					 testbed at the University of Münster, conducted several SDN-based experiments
+					 and extended the monitoring interface of the Real-Time Framework (RTF)
+					 The OFERTIE project aims to use SDN approaches to improve delivery of Real-Time Online
+					 Interactive Applications (ROIA).
+					}
+
+%----------------------------------------------------------------------------------
+%            academic events
+%----------------------------------------------------------------------------------
+\section{Attended Academic Events}
+\cvitem{2018}{CPC - \textit{20th Workshop on Compilers for Parallel Computing}, Dublin, Ireland}
+\cvitem{}{ISPASS - \textit{International Symposium on Performance Analysis of Systems and Software}, Belfast, UK}
+\cvitem{}{SPLS - \textit{Scottish Programming Languages Seminar}, Glasgow, UK}
+\cvitem{}{CGO - \textit{International Symposium on Code Generation and Optimization}, Vienna, Austria}
+\cvitem{2017}{Compiler and Programming Language Summit (organized by Google), Munich, Germany}
+\cvitem{}{ACASES Summer School (organized by HiPEAC) - \textit{Thirteenth International Summer School on Advanced Computer Architecture and Compilation for High-Performance and Embedded Systems}, Fiuggi, Italy}
+\cvitem{}{PUMPS Summer School - \textit{Eighth edition of the Programming and Tuning Massively Parallel Systems summer school}, Barcelona, Spain}
+\cvitem{}{SPLS - \textit{Scottish Programming Languages Seminar}, St. Andrews, UK}
+\cvitem{2016}{HLPP conference - \textit{9th International Symposium on High-Level Parallel Programming and Applications}, Münster, Germany}
+\cvitem{}{UKMAC - \textit{UK Many-Core Developer Conference}, Edinburgh, UK}
+\cvitem{}{WadlerFest/LFCS30 - \textit{30th Aniversery of the Laboratory for Foundations of Computer Science}, Edinburgh, UK}
+\cvitem{2015}{PRACE Course - \textit{Advanced Parallel Programming with MPI and OpenMP}, Jülich, Germany}
+\cvitem{}{PRACE Course - \textit{Node-Level Performance Engineering}, Stuttgart, Germany}
+
+%----------------------------------------------------------------------------------
+%            reviewer
+%----------------------------------------------------------------------------------
+\section{Reviewer}
+
+    \cvitem{2018}{CGO 2018 artifact evaluation commitee}
+    \cvitem{}{LCTES 2018 artifact evaluation commitee}
+    %\cvitem{2017}{Dr Hans Riegel Fachpreise commitee - (Undergrad Competition)}
+	\cvitem{2016 -- 2018}
+				 {I have been active as an external reviewer for the following conferences and journals:
+                  \emph{Principles and Practice of Parallel Programming (PPoPP),
+                    the International Journal of Parallel Programming (IJPP)},
+					the \emph{Journal of Supercomputing},
+					the journal \emph{Concurrency and Computation: Practice and Experience},
+                    the Journal of Applied Geophysics (APPGEO),
+					the Parallel Computing Technologies (PaCT),
+					the Parallel Computing Conference (ParCo),
+					the UKRCON
+					and the PSI.
+				 }
+
+%----------------------------------------------------------------------------------
+%            memberships
+%----------------------------------------------------------------------------------
+%\section{Memberships}
+%    \cvitem{}{ACM Student Member}
+%    \cvitem{}{Berufungskomission W2 Praktische Informatik}
+
+%----------------------------------------------------------------------------------
+%            teaching
+%----------------------------------------------------------------------------------
+\section{Teaching}
+	\cvitem{Summer 2018}{Course design and Lecturer: \textit{Introduction to programming with C and C++}}
+	\cvitem{Summer 2018}{Teaching assistant for the course: \textit{Parallel Programming: Multi-Core and GPU}}
+	\cvitem{Winter 2017}{Teaching assistant for the course: \textit{Operating systems}}
+	\cvitem{Winter 2017}{Teaching assistant for the course: \textit{Introduction to programming with Java and Racket}}
+	\cvitem{Summer 2017}{Course design and Lecturer: \textit{Introduction to programming with C and C++}}
+	\cvitem{Summer 2017}{Supervised a student project: \textit{Automatic program optimization for modern many-core systems}}
+	\cvitem{Winter 2016}{Teaching assistant for the course: \textit{Operating systems}}
+	\cvitem{Winter 2015}{Student assistant for the course: \textit{Operating systems}}
+	\cvitem{Summer 2015}{Student assistant for the course: \textit{Computer architectures}}
+	\cvitem{Winter 2014}{Student assistant for the course: \textit{Operating systems}}
+
+%----------------------------------------------------------------------------------
+%            supervised students
+%----------------------------------------------------------------------------------
+\section{Supervised Undergraduate and Master Students}
+    \cvitem{since 03/2018}{Clemens Hesse-Edenfeld (Undergraduate): \emph{Integrating Performance Models for Stencil Computations in Lift}}
+    \cvitem{since 02/2018}{Johannes Lenfers (Master): \emph{Implementing Compiler Auto-Tuning Strategies for Design Space Exploration of Lift Programs}}
+    \cvitem{since 02/2018}{Bastian Köpcke (Master): \emph{Efficient GPU Code Generation for FFT Computations in Lift}}
+    \cvitem{since 01/2018}{Martin Lücke (Master): \emph{Efficient Implementation and Optimization of Geometric Multi-Grid Operations in the Lift Framework}}
+    \cvitem{03/2018}{Alexander Dirk Holthaus (Master): \emph{Development of an Analytical Tool for Visualizing and Optimizing Memory Accesses in GPU Kernels}}
+    \cvitem{03/2018}{Maurice Heine (Undergraduate): \emph{Implementation of a Visualization Tool for Lift Programs}}
+
+
+%----------------------------------------------------------------------------------
+%            technical skills
+%----------------------------------------------------------------------------------
+%\section{Technical Skills}
+%	\cventry{Programming Languages}
+%					{Scala, C/C++, Java}{}{}{}
+%					{Experiences:
+%					 Stencil support for Lift compiler (Scala),
+%				 	 Multicast Module for the Floodlight SDN Controller (Java),
+%					 Measurement library for OpenCL (C++),
+%					 Implementation of the WiPo architecture (Java),
+%					 Monitoring interface extension of RTF (C++)
+%					}
+%
+%	\cventry{Parallel Programming}
+%					{OpenCL, CUDA, OpenMP}{}{}{}
+%					{Experiences:
+%					 Performance portability evaluation of OpenCL Kernels on Intel Xeon (Phi) and NVIDIA Tesla.
+%					 JIT compilation of a DSL using LLVM and CUDA Driver API
+%					}
+%
+%	\cventry{Compiler Tools}
+%					{LLVM}{}{}{}
+%					{Experiences:
+%					 Analysis Pass for the PACXX Compiler,
+%					 Compiler frontend for self-defined DSL for data parallel applications based on algorithmic skeletons
+%					}
+
+\end{document}
