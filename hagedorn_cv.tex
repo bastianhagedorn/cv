@@ -103,8 +103,9 @@ maxbibnames=50]{biblatex}
 					{Supervisor: Prof. Sergei Gorlatch \\
 					 %Main research interests: High-level programming abstractions for high-performance
 					 %computing applications, Programming of modern multi- and many-core processors
-                     My PhD research focuses on performance-portable stencil code generation using Lift by tackling the growing problem of achieving high efficiency when programming the ever changing hardware of today and tomorrow.
-                     The Lift project has recently emerged as a promising compilation framework to achieve performance portability.
+                     %My PhD research focuses on performance-portable stencil code generation using Lift by tackling the growing problem of achieving high efficiency when programming the ever changing hardware of today and tomorrow.
+                     My PhD research focuses on high-performance GPU code generation using Lift by tackling the growing problem of achieving high efficiency when programming the ever changing hardware of today and tomorrow.
+                     I'm one of the main developers of the Lift project which has recently emerged as a promising compilation framework to achieve performance portability.
                      Lift defines a small set of reusable parallel primitives that DSL writers can easily build upon.
                      Lift’s key novelty is its ability to automatically explore the optimization space by using as a system of extensible rewrite rules which encode specific optimizations.
 					}
@@ -132,14 +133,23 @@ maxbibnames=50]{biblatex}
 %            research visits
 %----------------------------------------------------------------------------------
 \section{Research Visits}
+    \cventry{07/2018 \\-- 09/2018}
+					{Deep Learning Compiler Engineer Intern (3 months)}
+					{Nvidia}
+					{Redmond, WA, USA}{}
+					{
+                    During this internship, I was working on an embedded DSL, IR and compiler for optimizing deep learning applications.
+                    I focused especially on CUDA code generation for highly optimized matrix multiplication algorithms.
+                    My work on this project simplified managing the deep compute and memory hierarchy on modern GPUs and enabled using program synthesis for design space exploration.
+                    }
+
     \cventry{02/2018 \\-- 04/2018}
 					{Visiting researcher (2 months)}
 					{University of Glasgow}
 					{Glasgow, UK}{}
 					{Funded by HPC-Europa3\\
-                     During this visit, I investigate the implementation of performance portable HPC applications with Lift.
-                     I will focus on two HPC applications: room acoustics simulations and ground penetrating radar.
-                     The Irish Centre for High-End Computing (ICHEC) is supporting my visit by providing access to their GPU hardware and I closely collaborate with the entire Lift team at the Universities of Glasgow and Edinburgh.
+                     During this visit, I investigated the implementation of performance portable HPC applications with Lift including the automatic fusion of multiple compute kernels using rewrite rules.
+                     I focused on geometric multigrid methods and the Irish Centre for High-End Computing (ICHEC) supported my visit by providing access to their GPU hardware.
 					}
 
 	\cventry{07/2017 \\-- 09/2017}
@@ -170,15 +180,6 @@ maxbibnames=50]{biblatex}
 					 high-performance stencil code for GPUs.
 					}
 
-%	\cventry{12/2015}
-%					{PRACE course participant}
-%					{Jülich Supercomputing Centre}
-%					{Jülich, Germany}{}
-%					{Course: Advanced Parallel Programming with MPI and OpenMP \\
-%					 Content: Nonblocking Communication, Virtual Topologies, OpenMP-4.0 Extensions,
-%					 Parallel programming models on hybrid systems
-%					}
-
 	\cventry{09/2015}
 					{Visiting researcher (3 weeks)}
 					{HUST University}
@@ -188,17 +189,6 @@ maxbibnames=50]{biblatex}
 					 During this visit, I implemented an experimental setup for SDN-based multicast,
 					 and prepared a research paper on this topic~\cite{humernbrum}
 					}
-
-%	\cventry{07/2015}
-%					{PRACE course participant}
-%					{High Performance Computing Centre Suttgart}
-%					{Stuttgart, Germany}{}
-%					{Course: Node-Level Performance Engineering \\
-%					 Content: Parallel hardware architectures, Roofline performance model, benchmarking
-%					 and profiling tools for high-performance systems and applications
-%					}
-
-
 
 %----------------------------------------------------------------------------------
 %            publications
@@ -243,7 +233,6 @@ maxbibnames=50]{biblatex}
 %----------------------------------------------------------------------------------
 %            research projects
 %----------------------------------------------------------------------------------
-                    \newpage
 \section{Research Projects}
     \cventry{}
                     {\normalfont{\small I have been actively contributing to the following research projects}}{}{}{}{}
@@ -334,6 +323,8 @@ maxbibnames=50]{biblatex}
 %            teaching
 %----------------------------------------------------------------------------------
 \section{Teaching}
+	\cvitem{Winter 2019}{Teaching assistant for the course: \textit{Operating systems}}
+	\cvitem{Winter 2019}{Teaching assistant for the course: \textit{Introduction to programming with Java and Haskell}}
 	\cvitem{Summer 2018}{Course design and Lecturer: \textit{Introduction to programming with C and C++}}
 	\cvitem{Summer 2018}{Teaching assistant for the course: \textit{Parallel Programming: Multi-Core and GPU}}
 	\cvitem{Winter 2017}{Teaching assistant for the course: \textit{Operating systems}}
@@ -349,10 +340,10 @@ maxbibnames=50]{biblatex}
 %            supervised students
 %----------------------------------------------------------------------------------
 \section{Supervised Undergraduate and Master Students}
-    \cvitem{since 03/2018}{Clemens Hesse-Edenfeld (Undergraduate): \emph{Integrating Performance Models for Stencil Computations in Lift}}
     \cvitem{since 02/2018}{Johannes Lenfers (Master): \emph{Implementing Compiler Auto-Tuning Strategies for Design Space Exploration of Lift Programs}}
-    \cvitem{since 02/2018}{Bastian Köpcke (Master): \emph{Efficient GPU Code Generation for FFT Computations in Lift}}
-    \cvitem{since 01/2018}{Martin Lücke (Master): \emph{Efficient Implementation and Optimization of Geometric Multi-Grid Operations in the Lift Framework}}
+    \cvitem{02/2018}{Bastian Köpcke (Master): \emph{Efficient GPU Code Generation for FFT Computations in Lift}}
+    \cvitem{01/2018}{Martin Lücke (Master): \emph{Efficient Implementation and Optimization of Geometric Multi-Grid Operations in the Lift Framework}}
+    \cvitem{03/2018}{Clemens Hesse-Edenfeld (Undergraduate): \emph{Integrating Performance Models for Stencil Computations in Lift}}
     \cvitem{03/2018}{Alexander Dirk Holthaus (Master): \emph{Development of an Analytical Tool for Visualizing and Optimizing Memory Accesses in GPU Kernels}}
     \cvitem{03/2018}{Maurice Heine (Undergraduate): \emph{Implementation of a Visualization Tool for Lift Programs}}
 
