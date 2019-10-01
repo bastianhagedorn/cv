@@ -3,7 +3,14 @@
 % This work may be distributed and/or modified under the
 % conditions of the LaTeX Project Public License version 1.3c,
 % available at http://www.latex-project.org/lppl/.
-\documentclass[11pt,a4paper,sans]{moderncv}        % possible options include font size ('10pt', '11pt' and '12pt'), paper size ('a4paper', 'letterpaper', 'a5paper', 'legalpaper', 'executivepaper' and 'landscape') and font family ('sans' and 'roman')
+%\documentclass[11pt,a4paper,sans]{moderncv}        % possible options include font size ('10pt', '11pt' and '12pt'), paper size ('a4paper', 'letterpaper', 'a5paper', 'legalpaper', 'executivepaper' and 'landscape') and font family ('sans' and 'roman')
+%\usepackage{mathpazo}
+
+
+\documentclass[11pt,a4paper]{moderncv}
+\usepackage{mathpazo}
+
+\newcommand{\strong}[1]{\textcolor{color1}{\textbf{#1}}}
 
 \usepackage[utf8]{inputenc}
 \usepackage{eurosym}
@@ -101,14 +108,15 @@ maxbibnames=50]{biblatex}
 					{Ph.D. studies}
 					{University of Münster}
 					{Münster, Germany}{}
-					{Supervisor: Prof. Sergei Gorlatch \\
-					 %Main research interests: High-level programming abstractions for high-performance
-					 %computing applications, Programming of modern multi- and many-core processors
-                     %My PhD research focuses on performance-portable stencil code generation using Lift by tackling the growing problem of achieving high efficiency when programming the ever changing hardware of today and tomorrow.
-                     My PhD research focuses on high-performance GPU code generation using Lift by tackling the growing problem of achieving high efficiency when programming the ever changing hardware of today and tomorrow.
-                     I'm one of the main developers of the Lift project which has recently emerged as a promising compilation framework to achieve performance portability.
-                     Lift defines a small set of reusable parallel primitives that DSL writers can easily build upon.
-                     Lift’s key novelty is its ability to automatically explore the optimization space by using as a system of extensible rewrite rules which encode specific optimizations.
+                    {Supervisor: Prof. Sergei Gorlatch, Prof. Michel Steuwer (University of Glasgow) \\
+                    Tackling ambitious problems ranging from artificial intelligence to autonomous driving creates significantly increasing demands in computational power as well as efficient software.
+                    I develop novel compilation techniques which will allow to generate high-performance programs for the rapidly changing landscape of specialized hardware accelerators.
+                    I am especially interested in performance optimizations encoded as semantics preserving rewrite rules whose application is controlled by a novel strategy language.
+                    By combining high-level programming abstractions with application and hardware knowledge, I aim to shape the next generation of optimizing compilers for today's and tomorrow's hardware.
+                     %My PhD research focuses on high-performance GPU code generation using Lift by tackling the growing problem of achieving high efficiency when programming the ever changing hardware of today and tomorrow.
+                     %I'm one of the main developers of the Lift project which has recently emerged as a promising compilation framework to achieve performance portability.
+                     %Lift defines a small set of reusable parallel primitives that DSL writers can easily build upon.
+                     %Lift’s key novelty is its ability to automatically explore the optimization space by using as a system of extensible rewrite rules which encode specific optimizations.
 					}
 
 	\cventry{2014 -- 2016}
@@ -134,8 +142,8 @@ maxbibnames=50]{biblatex}
 %----------------------------------------------------------------------------------
 \section{Awards and Grants}
 
-    \cventry{09/2019}{Heidelberg Laureate Forum 2019}{Invited Participation}{Invited to attend this highly prestigiousforum, with laureates of ACM A.M. Turing Award, Abel Prize, Fields Medal and Nevanlinna Prize. \textbf{Only 100 spaces} available for computer science}{}{}
-    \cventry{12/2018}{NVIDIA Graduate Fellowship 2019}{50.000\$}{One of ten recipients world wide, selected as the only student from a European University}{}{}
+    \cventry{09/2019}{Heidelberg Laureate Forum 2019}{Invited Participation}{Invited to attend this highly prestigious forum with laureates of ACM A.M. Turing Award, Abel Prize, Fields Medal and Nevanlinna Prize. \textbf{Only 100 spaces} available for computer science}{}{}
+    \cventry{12/2018}{NVIDIA Graduate Fellowship 2019}{50.000\$}{One of ten recipients world wide, selected as the only student from a European university}{}{}
     \cventry{02/2018}{Best Paper Award}{ACM International Symposium on Code Generation and Optimization (CGO) 2018}{Selected as the best paper out of 103 submissions}{}{}
     \cventry{since 2016}{Four Travel Grants}{HPC-Europa3, HiPEAC, 2x EuroLab-4-HPC}{total approx. 12.500\euro}{}{}
 
@@ -148,7 +156,7 @@ maxbibnames=50]{biblatex}
 					{NVIDIA}
 					{W\"urselen, Germany}{}
 					{
-                    During this time, I continue the work started during my Internship in the US focusing on high-performance code generation for deep learning applications on GPUs.
+                    During this time, I extended the IR developed during my Internship in the US, focusing on code generation targeting NVIDIAs tensor cores in order to accelerate low-precision deep learning applications on GPUs.
                     }
 
     \cventry{07/2018 \\-- 09/2018}
@@ -226,14 +234,14 @@ maxbibnames=50]{biblatex}
 %----------------------------------------------------------------------------------
 \section{Presentations}
     \cventry{04/2019}
-					{\normalfont{Talk: \textit{High Performance Matrix Multiplication Codes using Tensor Cores}}}{}{}{}
-                    {NVIDIA Corporation, Redmond WA, USA}
+					{\normalfont{Talk: \textit{High Performance Matrix Multiplication using Tensor Cores}}}{}{}{}
+                    {NVIDIA, Redmond WA, USA}
     \cventry{03/2019}
 					{\normalfont{Talk: \textit{Elevate - A Language for Expressing Optimization Strategies}}}{}{}{}
                     {Scottish Programming Language Seminar (SPLS), University of St. Andrews, UK}
     \cventry{12/2018}
 					{\normalfont{Talk: \textit{High Performance Code Generation for Matrix Multiplication and Machine Learning}}}{}{}{}
-                    {NVIDIA Corporation, Redmond WA, USA}
+                    {NVIDIA, Redmond WA, USA}
     \cventry{10/2018}
 					{\normalfont{Talk: \textit{High Performance Geometric Multigrid Operations in Lift}}}{}{}{}
                     {HPC-Europa3 Transnational Access Meeting (TAM), Edinburgh, UK}
@@ -263,9 +271,19 @@ maxbibnames=50]{biblatex}
 %----------------------------------------------------------------------------------
 %            research projects
 %----------------------------------------------------------------------------------
+\clearpage
 \section{Research Projects}
     \cventry{}
                     {\normalfont{\small I have been actively contributing to the following research projects}}{}{}{}{}
+
+    \cventry{since 07/2019}
+					{Elevate}
+					{\textit{A Language for Describing Program Transformations}}{}{}
+                    {Ongoing research, \textit{https://github.com/elevate-lang}\\
+					 I am leading the development of Elevate, a language enabling the specification of composable program transformations.
+                     Using simple combination and traversal operators, Elevate allows to build domain-specific program optimizations as semantics preserving rewrite rules for arbitrary ASTs.
+					}
+
 
 
 	\cventry{since 04/2016}
@@ -304,7 +322,9 @@ maxbibnames=50]{biblatex}
 %            academic events
 %----------------------------------------------------------------------------------
 \section{Attended Academic Events}
-\cvitem{2019}{EuroLLVM - European LLVM Developers' Meeting, Brussels, Belgium}
+\cvitem{2019}{HLF - Heidelberg Laureate Forum, Heidelberg, Germany}
+\cvitem{}{ACASES Summer School (organized by HiPEAC) - \textit{Fifteenth International Summer School on Advanced Computer Architecture and Compilation for High-Performance and Embedded Systems}, Fiuggi, Italy}
+\cvitem{}{EuroLLVM - European LLVM Developers' Meeting, Brussels, Belgium}
 \cvitem{}{SPLS - \textit{Scottish Programming Languages Seminar}, St. Andrews, UK}
 \cvitem{2018}{Compiler and Programming Language Summit (organized by Google), Munich, Germany}
 \cvitem{}{TAM - \textit{HPC-Europa3 Transnational Access Meeting}, Edinburgh, UK}
@@ -332,7 +352,7 @@ maxbibnames=50]{biblatex}
     \cvitem{2018}{CGO 2018 artifact evaluation commitee}
     \cvitem{}{LCTES 2018 artifact evaluation commitee}
     %\cvitem{2017}{Dr Hans Riegel Fachpreise commitee - (Undergrad Competition)}
-	\cvitem{2016 -- 2018}
+	\cvitem{since 2016}
 				 {I have been active as an external reviewer for the following conferences and journals:
                   \emph{Principles and Practice of Parallel Programming (PPoPP),
                     the International Parallel and Distributed Processing Symposium (IPDPS),
@@ -357,20 +377,20 @@ maxbibnames=50]{biblatex}
 %            teaching
 %----------------------------------------------------------------------------------
 \section{Teaching}
-	\cvitem{Winter 2020}{Teaching assistant for the course: \textit{Parallel Systems}}
-	\cvitem{Winter 2020}{Supervised a student project: \textit{Targeting TensorCores by developing a CUDA backend for Lift}}
-	\cvitem{Winter 2019}{Teaching assistant for the course: \textit{Operating systems}}
-	\cvitem{Winter 2019}{Teaching assistant for the course: \textit{Introduction to programming with Java and Haskell}}
-	\cvitem{Summer 2018}{Course design and Lecturer: \textit{Introduction to programming with C and C++}}
-	\cvitem{Summer 2018}{Teaching assistant for the course: \textit{Parallel Programming: Multi-Core and GPU}}
-	\cvitem{Winter 2017}{Teaching assistant for the course: \textit{Operating systems}}
-	\cvitem{Winter 2017}{Teaching assistant for the course: \textit{Introduction to programming with Java and Racket}}
-	\cvitem{Summer 2017}{Course design and Lecturer: \textit{Introduction to programming with C and C++}}
-	\cvitem{Summer 2017}{Supervised a student project: \textit{Automatic program optimization for modern many-core systems}}
-	\cvitem{Winter 2016}{Teaching assistant for the course: \textit{Operating systems}}
-	\cvitem{Winter 2015}{Student assistant for the course: \textit{Operating systems}}
-	\cvitem{Summer 2015}{Student assistant for the course: \textit{Computer architectures}}
-	\cvitem{Winter 2014}{Student assistant for the course: \textit{Operating systems}}
+	\cvitem{Winter '20}{Teaching assistant for the course: \textit{Parallel Systems}}
+	\cvitem{Winter '20}{Supervised a student project: \textit{Developing a CUDA backend for Lift targeting TensorCores }}
+	\cvitem{Winter '19}{Teaching assistant for the course: \textit{Operating systems}}
+	\cvitem{Winter '19}{Teaching assistant for the course: \textit{Introduction to programming with Java and Haskell}}
+	\cvitem{Summer '18}{Course design and Lecturer: \textit{Introduction to programming with C and C++}}
+	\cvitem{Summer '18}{Teaching assistant for the course: \textit{Parallel Programming: Multi-Core and GPU}}
+	\cvitem{Winter '17}{Teaching assistant for the course: \textit{Operating systems}}
+	\cvitem{Winter '17}{Teaching assistant for the course: \textit{Introduction to programming with Java and Racket}}
+	\cvitem{Summer '17}{Course design and Lecturer: \textit{Introduction to programming with C and C++}}
+	\cvitem{Summer '17}{Supervised a student project: \textit{Automatic program optimization for modern many-core systems}}
+	\cvitem{Winter '16}{Teaching assistant for the course: \textit{Operating systems}}
+	\cvitem{Winter '15}{Student assistant for the course: \textit{Operating systems}}
+	\cvitem{Summer '15}{Student assistant for the course: \textit{Computer architectures}}
+	\cvitem{Winter '14}{Student assistant for the course: \textit{Operating systems}}
 
 %----------------------------------------------------------------------------------
 %            supervised students
