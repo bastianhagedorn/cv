@@ -1,29 +1,45 @@
-%% start of file `publications.bib'.
-%% Copyright 2006-2012 Xavier Danaux (xdanaux at gmail.com).
-%
-% This work may be distributed and/or modified under the
-% conditions of the LaTeX Project Public License version 1.3c,
-% available at http://www.latex-project.org/lppl/.
+@inproceedings{elevateICFP2,
+  author    = {Bastian Hagedorn and
+               Johannes Lenfers and
+               Thomas Koehler and
+               Xueying Qin and
+               Sergei Gorlatch and
+               Michel Steuwer},
+  title     = {Achieving High-Performance the Functional Way - A Functional Pearl on Expressing High-Performance Optimizations as Rewrite Strategies},
+  journal   = {Proc. {ACM} Program. Lang.},
+  booktitle = {25th ACM SIGPLAN International Conference on Functional Programming ({ICFP}), Virtual Event, August 24-26, 2020},
+  note      = {(accepted for publication) },
+  publisher = {{ACM}},
+  year      = {2020}
+}
 
-%@inproceedings{cgo2018,
-%	title={High Performance Stencil Code Generation with Lift},
-%	author={Hagedorn, Bastian and Stoltzfus, Larisa and Steuwer, Michel and Gorlatch, Sergei and Dubach, Christophe},
-%	booktitle = {International Symposium on Code Generation and Optimization, {CGO} 2018 (\textbf{Best Paper Award})},
-%	year={2018},
-%}
+@inproceedings{fireironPACTown,
+  author    = {Bastian Hagedorn and
+               Archibald Samuel Elliott and
+               Henrik Barthels and
+               Rastislav Bodik and
+               Vinod Grover},
+  title     = {Fireiron: A Data-Movement-Aware Scheduling Language for GPUs},
+  booktitle = {29th International Conference on Parallel Architectures and Compilation
+               Techniques, {PACT} 2020, Virtual Event, October 3-7, 2020},
+  note      = {(accepted for publication)},
+  publisher = {{IEEE}},
+  year      = {2020}
+}
 
 @article{hagedorn2020fireiron,
-  title={Fireiron: A Scheduling Language for High-Performance Linear Algebra on GPUs},
-  author={Hagedorn, Bastian and Elliott, Archibald Samuel and Barthels, Henrik and Bodik, Rastislav and Grover, Vinod},
-  journal={arXiv preprint arXiv:2003.06324},
-  year={2020}
+    title={Fireiron: A Scheduling Language for High-Performance Linear Algebra on GPUs},
+    author={\textbf{Bastian Hagedorn} and Archibald Samuel Elliott and Henrik Barthels and Rastislav Bodik and Vinod Grover},
+    year={2020},
+    journal={arXiv preprint: 2003.06324 [cs.PL]}
 }
 
 @article{hagedorn2020language,
   title={A Language for Describing Optimization Strategies},
-  author={Hagedorn, Bastian and Lenfers, Johannes and Koehler, Thomas and Gorlatch, Sergei and Steuwer, Michel},
-  journal={arXiv preprint arXiv:2002.02268},
+  author={\textbf{Hagedorn, Bastian} and Lenfers, Johannes and Koehler, Thomas and Gorlatch, Sergei and Steuwer, Michel},
+  journal={arXiv preprint: 2002.02268 [cs.PL]},
   year={2020}
+
 }
 
 @inproceedings{gpgpu2020,
@@ -34,19 +50,22 @@
 }
 
 @article{taco2019,
- author = {Stoltzfus, Larisa and Hagedorn, Bastian and Steuwer, Michel and Gorlatch, Sergei and Dubach, Christophe},
- title = {Tiling Optimizations for Stencil Computations Using Rewrite Rules in Lift},
- year = {2019},
- issue_date = {December 2019},
- publisher = {Association for Computing Machinery},
- address = {New York, NY, USA},
- volume = {16},
- number = {4},
- journal = {ACM Trans. Archit. Code Optim.},
- month = dec,
- articleno = {Article 52},
- numpages = {25},
- keywords = {lift, GPU computing, stencil, Code generation, performance portability}
+author    = {Larisa Stoltzfus and
+              Bastian Hagedorn and
+               Michel Steuwer and
+               Sergei Gorlatch and
+               Christophe Dubach},
+  title     = {Tiling Optimizations for Stencil Computations Using Rewrite Rules
+               in Lift},
+  journal   = {ACM Transactions on Architecture and Code Optimization ({TACO})},
+  volume    = {16},
+  number    = {4},
+  pages     = {52:1--52:25, Rank B},
+  year      = {2020},
+  timestamp = {Fri, 27 Mar 2020 08:44:29 +0100},
+  biburl    = {https://dblp.org/rec/journals/taco/StoltzfusHSGD20.bib},
+  bibsource = {dblp computer science bibliography, https://dblp.org}
+
 }
 
 @inproceedings{asplos2018,
@@ -68,29 +87,48 @@
 }
 
 @inproceedings{cgo2018,
-  author    = {Bastian Hagedorn and
+ author    = {Bastian Hagedorn and
                Larisa Stoltzfus and
                Michel Steuwer and
                Sergei Gorlatch and
                Christophe Dubach},
-  title     = {{High} Performance Stencil Code Generation with Lift},
-  booktitle = {Proceedings of the 2018 International Symposium on Code Generation
-               and Optimization, {CGO} 2018, Vienna, Austria
-               (\textbf{Best Paper Award, Most cited paper of CGO'18})},
-  pages     = {100--112},
+  title     = {High Performance Stencil Code Generation with Lift},
+  editor    = {Jens Knoop and
+               Markus Schordan and
+               Teresa Johnson and
+               Michael F. P. O'Boyle},
+  note      = {(\textbf{Best Paper Award, Most cited paper of CGO'18})},
+  booktitle = {Proceedings of the 2018 ACM/IEEE International Symposium on Code Generation
+               and Optimization, {CGO} 2018,  V{\"{o}}sendorf / Vienna, Austria,
+               February 24-28, 2018},
+  pages     = {100--112, Rank A},
+  publisher = {{ACM}},
   year      = {2018},
-  doi       = {10.1145/3168824},
+  timestamp = {Wed, 21 Nov 2018 12:44:27 +0100},
+  biburl    = {https://dblp.org/rec/conf/cgo/HagedornSSGD18.bib},
+  bibsource = {dblp computer science bibliography, https://dblp.org}
 }
 
 @inproceedings{psi2017,
-	title			= {A Transformation-Based Approach for Developing High-Performance {GPU} Programs},
-	author		= {Hagedorn, Bastian and Steuwer, Michel and Gorlatch, Sergei},
+author    = {Bastian Hagedorn and
+               Michel Steuwer and
+               Sergei Gorlatch},
 	AUTHOR+an = {1=highlight},
-	booktitle     = {Perspectives of System Informatics - 12th International Andrei Ershov
-               Informatics Conference, {PSI} 2017},
+  editor    = {Alexander K. Petrenko and
+               Andrei Voronkov},
+  title     = {A Transformation-Based Approach to Developing High-Performance {GPU}
+               Programs},
+  booktitle = {Perspectives of System Informatics - 11th International Andrei P.
+               Ershov Informatics Conference, {PSI} 2017, Moscow, Russia, June 27-29,
+               2017, Revised Selected Papers},
   series    = {Lecture Notes in Computer Science},
+  volume    = {10742},
+  pages     = {179--195, Rank B},
   publisher = {Springer},
-	year={2017},
+  year      = {2017},
+  timestamp = {Tue, 14 May 2019 10:00:44 +0200},
+  biburl    = {https://dblp.org/rec/conf/ershov/HagedornSG17.bib},
+  bibsource = {dblp computer science bibliography, https://dblp.org}
 }
 
 @inproceedings{humernbrum,
