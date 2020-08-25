@@ -15,8 +15,6 @@
 \renewcommand*\oldstylenums[1]{{\firaoldstyle{} #1}}
 
 
-\newcommand{\strong}[1]{\textcolor{color1}{\textbf{#1}}}
-
 \usepackage[utf8]{inputenc}
 \usepackage{eurosym}
 
@@ -26,7 +24,7 @@
 %\renewcommand{\familydefault}{\sfdefault}         % to set the default font; use '\sfdefault' for the default sans serif font, '\rmdefault' for the default roman one, or any tex font name
 %\nopagenumbers{}                                  % uncomment to suppress automatic page numbering for CVs longer than one page
 
-\moderncvtheme[blue]{classic}
+\moderncvtheme{classic}
 \usepackage[utf8]{inputenc}
 % adjust the page margins
 \usepackage[scale=0.8]{geometry}
@@ -37,7 +35,7 @@
 \familyname{Hagedorn}
 \address{Einsteinstraße 62}{48149 Münster, Germany}
 %\phone[fixed]{+49~(0)~251~83-32746}
-\email{b.hagedorn@wwu.de}
+\email{hagedornbastian@gmail.com}
 
 \usepackage[style=numeric-verb,
             sorting=none, % keep order as in the bib file ...
@@ -97,56 +95,78 @@ maxbibnames=50]{biblatex}
 
 \bibliography{publications}
 
+\definecolor{color1}{HTML}{76B900}% NVIDIA Green
+\definecolor{color2}{HTML}{9D9D9D}% NVIDIA Dark Grey
+\definecolor{color3}{HTML}{008471}% NVIDIA Dark Green
+\definecolor{color4}{HTML}{0071C5}% NVIDIA Blue
+
+\newcommand{\strong}[1]{\textcolor{color0}{\textbf{#1}}}
+\newcommand{\highlight}[1]{\textcolor{color0}{#1}}
+
+\makeatletter
+\renewcommand*{\cventry}[7][.25em]{%
+  \cvitem[#1]{#2}{%
+    {\strong{#3}}%
+    \ifthenelse{\equal{#4}{}}{}{, {\slshape#4}}%
+    \ifthenelse{\equal{#5}{}}{}{, #5}%
+    \ifthenelse{\equal{#6}{}}{}{, #6}%
+    .\strut%
+    \ifx&#7&%
+    \else{\newline{}\begin{minipage}[t]{\linewidth}\small#7\end{minipage}}\fi}}
+\makeatother
+
 %----------------------------------------------------------------------------------
 %            content
 %----------------------------------------------------------------------------------
 \begin{document}
 \nocite{*}
 %-----       resume       ---------------------------------------------------------
+
+\begin{tikzpicture}[remember picture, overlay]
+  \node [anchor=north east, inner ysep=10mm, inner xsep=10mm]  at (current page.north east)
+    {\includegraphics[width=75mm]{nvidia.png}};
+\end{tikzpicture}
+
+%\vspace{-2.5em}
 \makecvtitle
 
 %----------------------------------------------------------------------------------
 %            university education
 %----------------------------------------------------------------------------------
+\section{Professional Experience}
+	\cventry{since 2020}
+					{Senior Deep Learning Compiler Engineer}
+					{NVIDIA}
+					{Würselen, Germany}{}
+                    {
+                        As part of NVIDIA's Deep Learning Compilation Group, I develop novel compilation techniques which will allow to generate high-performance programs for the rapidly changing landscape of specialized hardware accelerators.
+					}
 \section{University Education}
-	\cventry{since 2016}
-					{Ph.D. studies}
+	\cventry{2016 -- 2020}
+					{PhD degree in computer science}
 					{University of Münster}
 					{Münster, Germany}{}
                     {Supervisor: Prof. Sergei Gorlatch, Prof. Michel Steuwer (University of Glasgow) \\
-                    Tackling ambitious problems ranging from artificial intelligence to autonomous driving creates significantly increasing demands in computational power as well as efficient software.
-                    I develop novel compilation techniques which will allow to generate high-performance programs for the rapidly changing landscape of specialized hardware accelerators.
-                    I am especially interested in performance optimizations encoded as semantics preserving rewrite rules whose application is controlled by a novel strategy language.
-                    By combining high-level programming abstractions with application and hardware knowledge, I aim to shape the next generation of optimizing compilers for today's and tomorrow's hardware.
-                     %My PhD research focuses on high-performance GPU code generation using Lift by tackling the growing problem of achieving high efficiency when programming the ever changing hardware of today and tomorrow.
-                     %I'm one of the main developers of the Lift project which has recently emerged as a promising compilation framework to achieve performance portability.
-                     %Lift defines a small set of reusable parallel primitives that DSL writers can easily build upon.
-                     %Lift’s key novelty is its ability to automatically explore the optimization space by using as a system of extensible rewrite rules which encode specific optimizations.
+                        Thesis: \emph{High-Performance Domain-Specific Compilation without Domain-Specific Compilers.}
 					}
 
 	\cventry{2014 -- 2016}
-					{Master of Science in computer science}
-					{University of Münster}{Münster, Germany}
-					{\textit{Final grade in computer science: excellent with distinction (90\%)}}
-					{Thesis title: An Extension of a Functional Intermediate Language for Parallelizing
-					 Stencil Computations and its Optimizing GPU Implementation Using OpenCL.\\
-					 \textit{Grade for thesis: excellent}
-					}
+                    {Master of Science in computer science (with distinction)}
+					{}{}
+					{}
+					{University of Münster, Germany}
 
 	\cventry{2011 -- 2014}
-					{Bachelor of Science in computer science}
-					{University of Münster}{Münster, Germany}
-					{\textit{Final grade in computer science: very good (81\%)}}
-					{Thesis title: Implementation of a Multicast Module for the Floodlight SDN-Controller \\
-					 %In this thesis, I extended the Floodlight network controller with a module which enables
-					 %a novel approach to multicast communication in software-defined networks.
-					 \textit{Grade for thesis: excellent}
-					}
+					{Bachelor of Science in computer science with a minor in mathematics}
+					{}{}
+					{}
+					{University of Münster, Germany}
+					{}
 %----------------------------------------------------------------------------------
 %            awards and grants
 %----------------------------------------------------------------------------------
 \section{Awards and Grants}
-
+    \cventry{08/2020}{PhD thesis}{honored with the highest possible grade}{\strong{Summa cum laude}}{}{}
     \cventry{09/2019}{Heidelberg Laureate Forum 2019}{Invited Participation}{Invited to attend this highly prestigious forum with laureates of ACM A.M. Turing Award, Abel Prize, Fields Medal and Nevanlinna Prize. \textbf{Only 100 spaces} available for computer science}{}{}
     \cventry{12/2018}{NVIDIA Graduate Fellowship 2019}{50.000\$}{One of ten recipients world wide, selected as the only student from a European university}{}{}
     \cventry{02/2018}{Best Paper Award}{ACM International Symposium on Code Generation and Optimization (CGO) 2018}{Selected as the best paper out of 103 submissions}{}{}
@@ -308,15 +328,15 @@ maxbibnames=50]{biblatex}
                      Fireiron is a tool for experts, simplifying the development and experimentation with optimizations required for achieving highest performance on modern GPUs using specialized hardware units such as NVIDIA's Tensor Cores.
 					}
 
-	\cventry{since 04/2016}
+	\cventry{2016 -- 2019}
 					{Lift}
 					{\textit{A Novel Approach to Achieving Performance Portability on Accelerators}}{}{}
-					{Ongoing research, \textit{www.lift-project.org}\\
+					{\textit{www.lift-project.org}\\
 					 I am one of the main contributors focusing on implementing stencil computations in Lift.
 					 I extended the functional Lift IR and enabled the generation
 					 of efficient OpenCL kernels for stencil-based applications.
 					 The Lift project is a novel approach to generate high-performance OpenCL kernels
-					 from high-level functional programs.\\
+					 from high-level functional programs.
 					}
 
 	\cventry{04/2015}
@@ -328,17 +348,16 @@ maxbibnames=50]{biblatex}
 					 (GPUs etc.) using pure C++ by implementing a custom compiler
 					 (based on the LLVM framework) and a runtime system.
 					}
-
-	\cventry{10/2013 \\- 09/2014}
-					{OFERTIE EU Project}
-					{\textit{OpenFlow Experiment in Real-Time Internet Edutainment}}{}{}
-					{
-					 I configured the SDN
-					 testbed at the University of Münster, conducted several SDN-based experiments
-					 and extended the monitoring interface of the Real-Time Framework (RTF)
-					 The OFERTIE project aims to use SDN approaches to improve delivery of Real-Time Online
-					 Interactive Applications (ROIA).
-					}
+%	\cventry{10/2013 \\- 09/2014}
+%					{OFERTIE EU Project}
+%					{\textit{OpenFlow Experiment in Real-Time Internet Edutainment}}{}{}
+%					{
+%					 I configured the SDN
+%					 testbed at the University of Münster, conducted several SDN-based experiments
+%					 and extended the monitoring interface of the Real-Time Framework (RTF)
+%					 The OFERTIE project aims to use SDN approaches to improve delivery of Real-Time Online
+%					 Interactive Applications (ROIA).
+%					}
 
 %----------------------------------------------------------------------------------
 %            reviewer
